@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Colors from '../Utils/Colors';
 
 
-export default function HomeScreen({text, color = Colors.BLACK}) {
+export default function SubHeading({text, color = Colors.BLACK}) {
   return (
     <View>
             <Text style={{

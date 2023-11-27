@@ -7,6 +7,7 @@ import ProfileScreen from '../Screens/ProfileScreen';
 import SigninScreen from '../Screens/SigninScreen';
 import {Ionicons} from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
+import HomeScreenNavigation from './HomeScreenNavigation';
 
 
 
@@ -31,7 +32,7 @@ const screenOptions = {
 export default function TabNavigation() {
   return (
     <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen name="Home" component={HomeScreen} 
+      <Tab.Screen name="Home" component={HomeScreenNavigation} 
       options={{
         tabBarIcon: ({color, size}) => (
           <Ionicons name="home" size={size} color={color} />
