@@ -1,5 +1,6 @@
 export default{
     PRIMARY:'#0C7DE4',
+    SECONDARY: 'E5E7EB',
     WHITE:'#fff',
     GRAY:'#979191',
     bgColor:'#F6F8FC',

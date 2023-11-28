@@ -20,10 +20,11 @@ export default function CourseList({ level }) {
 
     const getCourses = () => {
         getCourseList(level).then(resp => {
-            console.log("RESP", resp);
+            // console.log("RESP", resp);
             setCourseList(resp?.courses);
         })
     }
+    
     return (
         <View style={{ padding: 20 }} >
             <SubHeading text={level + ' Courses'} color={level === 'Beginner' && Colors.WHITE} />

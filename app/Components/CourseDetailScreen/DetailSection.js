@@ -5,7 +5,7 @@ import OptionItem from './OptionItem'
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default function DetailSection({ course }) {
+export default function DetailSection({ course, enrollCourse, userEnrolledCourse}) {
 
     return (
         <View style={{ padding: 10, backgroundColor: Colors.WHITE, borderRadius: 15 }}>
@@ -33,11 +33,11 @@ export default function DetailSection({ course }) {
                 </Text>
             </View>
             <View style={{padding:10}}>
-                <TouchableOpacity style={{ padding: 20, backgroundColor: Colors.PRIMARY, borderRadius: 20 }} >
+                {userEnrolledCourse?.length === 0 ? <TouchableOpacity onPress={() => enrollCourse()} style={{ padding: 20, backgroundColor: Colors.PRIMARY, borderRadius: 20 }} >
                     <Text style={{fontFamily:'outfit', textAlign: 'center', fontSize:17, color: Colors.WHITE}} >
                         Enroll Now
                     </Text>
-                </TouchableOpacity>
+                </TouchableOpacity>:null}
             </View>
             </View>
         </View>
