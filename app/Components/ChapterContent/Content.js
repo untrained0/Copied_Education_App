@@ -36,7 +36,8 @@ const OnNextClick = (index) => {
           contentRef = ref;
         }}
         renderItem={({ item, index }) => (
-          <View style={{ width: Dimensions.get('screen').width, padding: 20 }}>
+          <View>
+          <ScrollView style={{ width: Dimensions.get('screen').width, padding: 20, marginBottom: 50 }}>
             <Text style={{ fontFamily: 'outfit-medium', fontSize: 22, marginTop: 15 }}>{item.heading}</Text>
             <ContentItem description={item?.description?.html} output={item?.output?.html} />
             <TouchableOpacity onPress={() => OnNextClick(index)} style={{ marginTop: 10}}>
@@ -44,6 +45,7 @@ const OnNextClick = (index) => {
                 {content.length <= index + 1?'Finish':'Next'}
                 </Text>
             </TouchableOpacity>
+          </ScrollView>
           </View>
         )}
       />

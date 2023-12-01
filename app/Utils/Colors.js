@@ -5,6 +5,7 @@ export default{
     GRAY:'#979191',
     bgColor:'#F6F8FC',
     BLACK:'#000',
-    GREEN:'#0CD650'
+    GREEN:'#0CD650',
+    LIGHT_GREEN: '#D1FFBD'
 
 }

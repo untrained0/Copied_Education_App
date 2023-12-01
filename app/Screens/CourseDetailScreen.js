@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Text, ToastAndroid, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
@@ -7,6 +7,7 @@ import DetailSection from '../Components/CourseDetailScreen/DetailSection';
 import ChapterSection from '../Components/CourseDetailScreen/ChapterSection';
 import { useUser } from '@clerk/clerk-expo';
 import { enrollCourse, getUserEnrolledCourse } from './../Services';
+import { CompleteChapterContext } from '../Context/CompleteChapterContext';
 
 
 export default function CourseDetailScreen() {
@@ -14,15 +15,19 @@ export default function CourseDetailScreen() {
   const params = useRoute().params;
   const { user } = useUser();
 
-  const [userEnrolledCourse, setUserEnrolledCourse] = useState([])
+  const [userEnrolledCourse, setUserEnrolledCourse] = useState([]);
+  const {isChapterComplete, setIsChapterComplete} = useContext(CompleteChapterContext);
+
 
   useEffect(() => {
-    // console.log(params.course.id);
-    // console.log(params.course.chapter);
     if (user && params.course) {
       GetUserEnrolledCourse();
     }
   }, [params.course, user]);
+
+  useEffect(() => {
+    isChapterComplete && getUserEnrolledCourse()
+  },[isChapterComplete])
 
   const GetUserEnrolledCourse = () => {
     getUserEnrolledCourse(params.course.id, user.primaryEmailAddress.emailAddress).then(resp => {
